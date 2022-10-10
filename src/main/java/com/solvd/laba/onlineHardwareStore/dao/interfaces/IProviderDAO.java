@@ -17,9 +17,11 @@ public interface IProviderDAO {
 
         List<Provider> getAllProvidersJDBC() throws SQLException;
 
-        void deleteProviderJDBC(int id);
+        void deleteProviderJDBC(int id) throws SQLException;
 
-        void insertIntoProviderJDBC(Provider provider);
+        void insertIntoProviderJDBC(Provider provider) throws SQLException;
 
-        void updateProviderJDBC(Provider provider);
+        void updateProviderJDBC(Provider provider) throws SQLException;
+
+        List<Provider> findProviderByCompanyName(String companyName) throws SQLException;
 }

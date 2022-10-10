@@ -122,11 +122,30 @@ public class Main {
 //            LOGGER.error(e.getMessage());
 //        }
 
+        Provider provider = new Provider(10, "adsa", "12");
+
         ProviderDAO providerDAO = new ProviderDAO();
         try {
             providerDAO.getAllProvidersJDBC().forEach(LOGGER::info);
+            LOGGER.info("");
+
+            providerDAO.insertIntoProviderJDBC(provider);
+            providerDAO.getAllProvidersJDBC().forEach(LOGGER::info);
+            LOGGER.info("");
+
+            provider.setCompanyName("kilka");
+            providerDAO.updateProviderJDBC(provider);
+            providerDAO.getAllProvidersJDBC().forEach(LOGGER::info);
+            LOGGER.info("");
+
+            providerDAO.deleteProviderJDBC(10);
+            providerDAO.getAllProvidersJDBC().forEach(LOGGER::info);
+            LOGGER.info("");
+
+            providerDAO.findProviderByCompanyName("Asus").forEach(LOGGER::info);
         } catch (SQLException e) {
             LOGGER.error(e.getMessage());
         }
+
     }
 }
