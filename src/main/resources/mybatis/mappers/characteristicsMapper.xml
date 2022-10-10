@@ -1,0 +1,49 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.laba.onlineHardwareStore.dao.interfaces.ICharacteristicsDAO">
+    <resultMap id="characteristics" type="com.solvd.laba.onlineHardwareStore.model.Characteristics">
+        <id property="id" column="id"/>
+        <result property="ram" column="ram"/>
+        <result property="rom" column="rom"/>
+        <result property="screenDiagonal" column="screenDiagonal"/>
+        <result property="memoryCapacityOfTheVideoCard" column="memoryCapacityOfTheVideoCard"/>
+        <result property="processor" column="processor"/>
+        <result property="processorFrequency" column="processorFrequency"/>
+        <result property="mainCamera" column="mainCamera"/>
+        <result property="frontCamera" column="frontCamera"/>
+        <result property="batteryCapacity" column="batteryCapacity"/>
+        <result property="operatingSystem" column="operatingSystem"/>
+    </resultMap>
+
+    <select id="getAllCharacteristics" resultMap="characteristics">
+        SELECT * FROM characteristics
+    </select>
+
+    <delete id="deleteCharacteristics">
+        DELETE FROM characteristics WHERE id = #{id}
+    </delete>
+
+    <insert id="insertIntoCharacteristics">
+        INSERT INTO characteristics (id, ram, rom, screenDiagonal, memoryCapacityOfTheVideoCard,
+        processor, processorFrequency, mainCamera, frontCamera, batteryCapacity, operatingSystem)
+        VALUES (#{id}, #{ram}, #{rom}, #{screenDiagonal}, #{memoryCapacityOfTheVideoCard}, #{processor},
+        #{processorFrequency}, #{mainCamera}, #{frontCamera}, #{batteryCapacity}, #{operatingSystem})
+    </insert>
+
+    <update id="updateCharacteristics">
+        UPDATE characteristics SET
+        id = #{id},
+        ram =  #{ram},
+        rom = #{rom},
+        screenDiagonal = #{screenDiagonal},
+        memoryCapacityOfTheVideoCard = #{memoryCapacityOfTheVideoCard},
+        processor=  #{processor},
+        processorFrequency = #{processorFrequency},
+        mainCamera = #{mainCamera},
+        frontCamera = #{frontCamera},
+        batteryCapacity = #{batteryCapacity},
+        operatingSystem = #{operatingSystem}
+        WHERE id = #{id}
+    </update>
+
+</mapper>

@@ -1,0 +1,35 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.laba.onlineHardwareStore.dao.interfaces.IOrderDAO">
+    <resultMap id="order" type="com.solvd.laba.onlineHardwareStore.model.Order">
+        <id property="id" column="id"/>
+        <result property="basketId" column="basketId"/>
+        <result property="paymentMathod" column="paymentMathod"/>
+        <result property="total" column="total"/>
+        <result property="employeeId" column="employeeId"/>
+    </resultMap>
+
+    <select id="getAllOrders" resultMap="order">
+        SELECT * FROM `order`
+    </select>
+
+    <delete id="deleteOrder">
+        DELETE FROM `order` WHERE id = #{id}
+    </delete>
+
+    <insert id="insertIntoOrder">
+        INSERT INTO `order` (id, basketId, paymentMathod, total, employeeId)
+        VALUES (#{id}, #{basketId}, #{paymentMathod}, #{total}, #{employeeId})
+    </insert>
+
+    <update id="updateOrder">
+        UPDATE order SET
+        id = #{id},
+        basketId = #{basketId},
+        paymentMathod = #{paymentMathod},
+        total = #{total},
+        employeeId = #{employeeId}
+        WHERE id = #{id}
+    </update>
+
+</mapper>

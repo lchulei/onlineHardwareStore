@@ -1,0 +1,33 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.laba.onlineHardwareStore.dao.interfaces.IPurchaseHistoryDAO">
+    <resultMap id="purchaseHistory" type="com.solvd.laba.onlineHardwareStore.model.PurchaseHistory">
+        <id property="id" column="id"/>
+        <result property="clientId" column="clientId"/>
+        <result property="orderId" column="orderId"/>
+        <result property="date" column="date"/>
+    </resultMap>
+
+    <select id="getAllPurchaseHistorys" resultMap="purchaseHistory">
+        SELECT * FROM purchaseHistory
+    </select>
+
+    <delete id="deletePurchaseHistory">
+        DELETE FROM purchaseHistory WHERE id = #{id}
+    </delete>
+
+    <insert id="insertIntoPurchaseHistory">
+        INSERT INTO purchaseHistory (id, clientId, orderId, date)
+        VALUES (#{id}, #{clientId}, #{orderId}, #{date})
+    </insert>
+
+    <update id="updatePurchaseHistory">
+        UPDATE purchaseHistory SET
+        id = #{id},
+        clientId = #{clientId},
+        orderId = #{orderId},
+        date = #{date}
+        WHERE id = #{id}
+    </update>
+
+</mapper>

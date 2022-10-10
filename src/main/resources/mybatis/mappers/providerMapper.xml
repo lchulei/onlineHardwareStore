@@ -1,0 +1,31 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.laba.onlineHardwareStore.dao.interfaces.IProviderDAO">
+    <resultMap id="provider" type="com.solvd.laba.onlineHardwareStore.model.Provider">
+        <id property="id" column="id"/>
+        <result property="companyName" column="companyName"/>
+        <result property="contractNumber" column="contractNumber"/>
+    </resultMap>
+
+    <select id="getAllProviders" resultMap="provider">
+        SELECT * FROM `provider`
+    </select>
+
+    <delete id="deleteProvider">
+        DELETE FROM `provider` WHERE id = #{id}
+    </delete>
+
+    <insert id="insertIntoProvider">
+        INSERT INTO `provider` (id, companyName, contractNumber)
+        VALUES (#{id}, #{companyName}, #{contractNumber})
+    </insert>
+
+    <update id="updateProvider">
+        UPDATE `provider` SET
+        id = #{id},
+        companyName = #{companyName},
+        contractNumber = #{contractNumber}
+        WHERE id = #{id}
+    </update>
+
+</mapper>

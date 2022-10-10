@@ -1,0 +1,29 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.laba.onlineHardwareStore.dao.interfaces.IBasketDAO">
+    <resultMap id="basket" type="com.solvd.laba.onlineHardwareStore.model.Basket">
+        <id property="id" column="id"/>
+        <result property="clientId" column="clientId"/>
+    </resultMap>
+
+    <select id="getAllBaskets" resultMap="basket">
+        SELECT * FROM `basket`
+    </select>
+
+    <delete id="deleteBasket">
+        DELETE FROM `basket` WHERE id = #{id}
+    </delete>
+
+    <insert id="insertIntoBasket">
+        INSERT INTO `basket` (id, clientId)
+        VALUES (#{id}, #{clientId})
+    </insert>
+
+    <update id="updateBasket">
+        UPDATE `basket` SET
+        id = #{id},
+        clientId = #{clientId}
+        WHERE id = #{id}
+    </update>
+
+</mapper>

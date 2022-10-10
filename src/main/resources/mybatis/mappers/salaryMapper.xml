@@ -1,0 +1,30 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.laba.onlineHardwareStore.dao.interfaces.ISalaryDAO">
+    <resultMap id="salary" type="com.solvd.laba.onlineHardwareStore.model.Salary">
+        <id property="id" column="id"/>
+        <result property="basketId" column="basketId"/>
+        <result property="productId" column="productId"/>
+    </resultMap>
+
+    <select id="getAllSalary" resultMap="salary">
+        SELECT * FROM salary
+    </select>
+
+    <delete id="deleteSalary">
+        DELETE FROM salary WHERE id = #{id}
+    </delete>
+
+    <insert id="insertIntoSalary">
+        INSERT INTO salary (id, amount)
+        VALUES (#{id}, #{amount})
+    </insert>
+
+    <update id="updateSalary">
+        UPDATE salary SET
+        id = #{id},
+        amount = #{amount}
+        WHERE id = #{id}
+    </update>
+
+</mapper>

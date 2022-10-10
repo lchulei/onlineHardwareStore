@@ -1,0 +1,29 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.laba.onlineHardwareStore.dao.interfaces.IPositionDAO">
+    <resultMap id="position" type="com.solvd.laba.onlineHardwareStore.model.Position">
+        <id property="id" column="id"/>
+        <result property="position" column="position"/>
+    </resultMap>
+
+    <select id="getAllPositions" resultMap="position">
+        SELECT * FROM position
+    </select>
+
+    <delete id="deletePosition">
+        DELETE FROM position WHERE id = #{id}
+    </delete>
+
+    <insert id="insertIntoPosition">
+        INSERT INTO position (id, position)
+        VALUES (#{id}, #{position})
+    </insert>
+
+    <update id="updatePosition">
+        UPDATE position SET
+        id = #{id},
+        position = #{position}
+        WHERE id = #{id}
+    </update>
+
+</mapper>

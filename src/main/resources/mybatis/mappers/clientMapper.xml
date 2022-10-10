@@ -1,0 +1,41 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.laba.onlineHardwareStore.dao.interfaces.IClientDAO">
+    <resultMap id="client" type="com.solvd.laba.onlineHardwareStore.model.Client">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="surname" column="surname"/>
+        <result property="birthDate" column="birthDate"/>
+        <result property="phoneNumber" column="phoneNumber"/>
+        <result property="address" column="address"/>
+    </resultMap>
+
+    <select id="getAllClients" resultMap="client">
+        SELECT * FROM client
+    </select>
+
+    <delete id="deleteClient">
+        DELETE FROM client WHERE id = #{id}
+    </delete>
+
+    <insert id="insertIntoClient">
+        INSERT INTO client (id, name, surname, birthDate, phoneNumber, address)
+        VALUES (#{id}, #{name}, #{surname}, #{birthDate}, #{phoneNumber}, #{address})
+    </insert>
+
+    <update id="updateClient">
+        UPDATE client SET
+        id = #{id},
+        name = #{name},
+        surname = #{surname},
+        birthDate = #{birthDate},
+        phoneNumber = #{phoneNumber},
+        address = #{address}
+        WHERE id = #{id}
+    </update>
+
+    <select id="findClientByNumber" resultMap="client">
+        SELECT * FROM client WHERE (phoneNumber = #{number} )
+    </select>
+
+</mapper>

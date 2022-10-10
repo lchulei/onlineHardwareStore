@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<list-provider>
+    <provider>
+        <companyName>Asus</companyName>
+        <contractNumber>1</contractNumber>
+        <id>1</id>
+    </provider>
+    <provider>
+        <companyName>Op</companyName>
+        <contractNumber>2</contractNumber>
+        <id>2</id>
+    </provider>
+    <provider>
+        <companyName>Len</companyName>
+        <contractNumber>3</contractNumber>
+        <id>3</id>
+    </provider>
+    <provider>
+        <companyName>Sa</companyName>
+        <contractNumber>4</contractNumber>
+        <id>4</id>
+    </provider>
+</list-provider>
